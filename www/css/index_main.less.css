@@ -2962,6 +2962,7 @@ label:empty {
 }
 @media all {
   .iframe-size {
+    height: 250px;
     width: 100%;
   }
 }
