@@ -10,27 +10,30 @@
 
        /* button  #btnKira */
     $(document).on("click", "#btnKira", function(evt)
+
     {
         /* your code goes here */
-         $("#popJawapan").modal("toggle");
-
-        var nInput =+document.getElementById("txtInput").value;
-        var nPenyebut =+document.getElementById("txtPenyebut").value;
-        var nPembilang =+document.getElementById("txtPembilang").value;
-
+						   /* kod ni kena cek semula*/
 		//function validinput(In){
 			//var jenisInput = /^[0-9]*/gm;
-			//var jenisInput !== isNaN;
-			/*if(document.getElementById("txtInput").value.match(jenisInput) || document.getElementById("txtPenyebut").value.match(jenisInput) || document.getElementById("txtPembilang").value.match(jenisInput))
+			/*var jenisInput =! isNaN;
+			if(document.getElementById("txtInput").value.match(jenisInput) || document.getElementById("txtPenyebut").value.match(jenisInput) || document.getElementById("txtPembilang").value.match(jenisInput))
 				{
 					return true;
 				}
 			else;
 				{
-					document.getElementById("demo").innerHTML ="Salah ni!";
+					navigator.notification.alert("Input nombor sahaja ok");
+					//document.getElementById("demo").innerHTML ="Salah ni!";
 					return false;
 				}
-		}*/
+		} sampai sini*/
+
+		$("#popJawapan").modal("toggle");
+
+        var nInput =+document.getElementById("txtInput").value;
+        var nPenyebut =+document.getElementById("txtPenyebut").value;
+        var nPembilang =+document.getElementById("txtPembilang").value;
 
 		function toHektar(h){
 			if(document.getElementById("selectUnit").value == "hektar"){
