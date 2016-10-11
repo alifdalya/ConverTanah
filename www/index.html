@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html>
+	<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+		<link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="icon-fonts/elusive-icons-2.0.0/css/elusive-icons.css">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="united/css/united.min.css" class="uib-framework-theme">
+		<title>Blank App Designer Cordova Web App Project Template</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+		<!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+		<!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+		<style>
+			/* following three (cascaded) are equivalent to above three meta viewport statements */
+			            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+			            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+			                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+			                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+			                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+		</style>
+
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+		<!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+		<!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+		<!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+		<!-- Recommended location for your JavaScript libraries -->
+		<!-- These library references (below) are just examples to give you the general idea... -->
+		<!-- <script src="lib/mc/hammer.js"></script> -->
+		<!-- <script src="lib/ft/fastclick.js"></script> -->
+
+		<!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+		<script src="cordova.js" id="xdkJScordova_"></script>
+
+		<script src="js/app.js"></script>
+		<!-- for your event code, see README and file comments for details -->
+		<script src="js/init-app.js"></script>
+		<!-- for your init code, see README and file comments for details -->
+		<script src="xdk/init-dev.js"></script>
+		<!-- normalizes device and document ready events, see file for details -->
+		<script type="application/javascript" src="lib/jquery.min.js"></script>
+		<script type="application/javascript" src="marginal/marginal-position.min.js"></script>
+		<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="application/javascript" src="js/index_user_scripts.js"></script>
+		<script type="application/javascript" src="sidebar/js/hammer.js"></script>
+		<script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+		<script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+		<script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+		<script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
+		<script type="application/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDw06_z6E3cJsvf0JxvSEux68kVOG1MbuA&amp;sensor=true"></script>
+		<script type="application/javascript" src="google_maps/google_maps.js"></script>
+		<script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
+
+		<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDw06_z6E3cJsvf0JxvSEux68kVOG1MbuA&amp;callback=initMap">
+		</script>
+	</head>
+
+	<body>
+		<!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+		<!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+		<!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+		<div class="upage" id="mainpage">
+			<div class="upage-outer">
+				<div class="uib-header header-bg container-group inner-element uib_w_27" data-uib="layout/header" data-ver="0" id="tajuk">
+					<h2>Kira Pecahan Tanah</h2>
+					<div class="widget-container wrapping-col single-centered"></div>
+					<div class="widget-container content-area horiz-area wrapping-col left">
+
+					</div>
+					<div class="widget-container content-area horiz-area wrapping-col right">
+
+						<button class="btn widget uib_w_28 d-margins btn-info" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnmenu"><i class="el el-lines" data-position="icon only"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="upage-content ac0 content-area vertical-col left" id="page_65_48">
+
+					<div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+						<div class="col uib_col_5 col-0_12-12" data-uib="layout/col" data-ver="0">
+							<div class="widget-container content-area vertical-col">
+								<div class="table-thing widget uib_w_3 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+									<label class="narrow-control label-top-left" for="txtInput">Luas tanah:</label>
+									<input class="wide-control form-control default input-lg" type="number" id="txtInput" placeholder="luas keseluruhan" name="nInput" required="">
+								</div>
+								<div class="table-thing widget uib_w_14 d-margins" data-uib="twitter%20bootstrap/select" data-ver="1">
+									<label class="narrow-control label-inline">Unit ukuran:</label>
+									<select class="wide-control form-control default input-lg" id="selectUnit" name="sUnit">
+										<option value="hektar">hektar</option>
+										<option value="ekar">ekar</option>
+										<option value="meter">meter persegi</option>
+										<option value="kaki">kaki persegi</option>
+									</select>
+								</div>
+								<button class="btn widget uib_w_15 d-margins btn-sm btn-info" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnInfo1"><i class="fa fa-info-circle button-icon-top" data-position="top"></i>Info</button>
+								<div class="card_col widget uib_w_16 d-margins card-columns-16" data-uib="layout/card_columns" data-ver="0">
+									<div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_17 section-dimension-17" data-uib="layout/card" data-ver="0">
+										<div class="table-thing widget uib_w_5 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+											<label class="narrow-control label-top-right" for="txtPenyebut">Penyebut :</label>
+											<input class="wide-control form-control default input-lg" type="number" placeholder="Cth: 1" id="txtPenyebut" name="nPenyebut" required="">
+										</div>
+
+									</div>
+									<div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_19 section-dimension-19" data-uib="layout/card" data-ver="0">
+										<div class="table-thing widget uib_w_6 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+											<label class="narrow-control label-top-right" for="txtPembilang">Pembilang :</label>
+											<input class="wide-control form-control default input-lg" type="number" placeholder="Cth:2" id="txtPembilang" name="nPembilang" required="">
+										</div>
+									</div>
+								</div>
+								<button class="btn widget uib_w_7 d-margins btn-lg btn-success" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnKira"><i class="fa fa-calculator button-icon-left" data-position="left"></i>Kira</button>
+								<button class="btn widget uib_w_8 d-margins btn-lg btn-danger" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnKosongkan"><i class="glyphicon glyphicon-trash button-icon-left" data-position="left"></i>Kosongkan</button><span class="uib_shim"></span>
+							</div>
+						</div>
+						<span class="uib_shim"></span>
+					</div>
+
+				</div>
+
+				<div class="inner-element uib_w_29 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':280, 'side':'left', 'dur':200}" id="bartepi">
+					<div class="sidebar-content content-area vertical-col">
+
+						<div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+							<div class="widget uib_w_33 scale-image d-margins" data-uib="media/img" data-ver="0">
+								<figure class="figure-align">
+									<img src="images/icon.png">
+
+									<figcaption data-position="bottom"></figcaption>
+								</figure>
+							</div>
+
+							<span class="uib_shim"></span>
+							<div class="col uib_col_10 col-0" data-uib="layout/col" data-ver="0">
+								<div class="widget-container content-area vertical-col">
+									<span class="uib_shim"></span>
+								</div>
+							</div>
+						</div>
+
+						<button class="btn widget uib_w_30 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="fa fa-calculator button-icon-left" data-position="left"></i>Kira Pecahan Tanah</button>
+						<button class="btn widget uib_w_31 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="el el-question-sign button-icon-left" data-position="left"></i>Panduan Urusan Tanah</button>
+						<button class="btn widget uib_w_32 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="el el-phone button-icon-left" data-position="left"></i>Hubungi Kami</button>
+						<button class="btn widget uib_w_75 d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnClose"><i class="glyphicon glyphicon-remove-sign button-icon-left" data-position="left"></i>Close</button>
+
+					</div>
+				</div>
+
+			</div>
+			<div class="modal outer-element uib_w_21" data-uib="twitter%20bootstrap/modal" data-ver="1" data-backdrop="true" id="popPP">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">x</button>
+							<h4 class="modal-title">Penyebut &amp; Pembilang</h4>
+						</div>
+
+						<div class="modal-body">
+							<div class="col uib_col_6 single-col" data-uib="layout/col" data-ver="0">
+								<div class="widget-container content-area vertical-col">
+									<div class="tarea widget uib_w_22 d-margins" data-uib="media/text" data-ver="0" name="uib_w_22">
+										<div class="widget-container left-receptacle"></div>
+										<div class="widget-container right-receptacle"></div>
+										<div class="text-container">
+											<p>Masukkan nilai penyebut dan pembilang sebagai contoh 1 daripada 2 bahagian tanah (1/2 =&nbsp;penyebut adalah 1 dan pembilang adalah 2)</p>
+										</div>
+									</div>
+									<span class="uib_shim"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button data-dismiss="modal" class="btn btn-default" type="button">close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal outer-element uib_w_23" data-uib="twitter%20bootstrap/modal" data-ver="1" data-backdrop="true" id="popJawapan">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">x</button>
+							<h4 class="modal-title">Keputusan</h4>
+						</div>
+
+						<div class="modal-body">
+							<div class="col uib_col_7 single-col" data-uib="layout/col" data-ver="0">
+								<div class="widget-container content-area vertical-col">
+									<div class="table-thing widget uib_w_9 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+										<label class="narrow-control label-top-right" for="txtNhektar">Nilai Hektar :</label>
+										<input class="wide-control form-control default input-lg" type="text" placeholder="hektar" id="txtNhektar" name="nNhektar" readonly="readonly">
+									</div>
+									<div class="table-thing widget uib_w_10 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+										<label class="narrow-control label-top-right" for="txtNekar">Nilai Ekar :</label>
+										<input class="wide-control form-control default input-lg" type="text" placeholder="ekar" id="txtNekar" name="nNekar" readonly="readonly">
+									</div>
+									<div class="table-thing widget uib_w_11 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+										<label class="narrow-control label-top-right" for="txtNmeter">Nilai Meter Persegi :</label>
+										<input class="wide-control form-control default input-lg" type="text" placeholder="meter sq" id="txtNmeter" name="nNmeter" readonly="readonly">
+									</div>
+									<div class="table-thing widget uib_w_12 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+										<label class="narrow-control label-top-right" for="txtNkaki">Nilai Kaki Persegi :</label>
+										<input class="wide-control form-control default input-lg" type="text" placeholder="kaki sq" id="txtNkaki" name="nNkaki" readonly="readonly">
+									</div>
+									<div class="table-thing widget uib_w_13 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+										<label class="narrow-control label-top-right" for="txtNinci">Nilai Inci Persegi :</label>
+										<input class="wide-control form-control default input-lg" type="text" placeholder="inci sq" id="txtNinci" name="nNinci" readonly="readonly">
+									</div><span class="uib_shim"></span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="upage hidden" id="about">
+			<div class="upage-outer">
+				<div class="uib-header header-bg container-group inner-element uib_w_41" data-uib="layout/header" data-ver="0" id="headerAbout">
+					<h2>Hubungi Kami</h2>
+					<div class="widget-container wrapping-col single-centered"></div>
+					<div class="widget-container content-area horiz-area wrapping-col left"></div>
+					<div class="widget-container content-area horiz-area wrapping-col right">
+						<button class="btn widget uib_w_42 d-margins btn-info" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnBalik"><i class="glyphicon glyphicon-chevron-left" data-position="icon only"></i>
+						</button>
+					</div>
+				</div>
+				<div class="upage-content ac0 content-area vertical-col" id="page_72_71">
+					<div class="widget uib_w_49 maps-size d-margins" data-uib="media/google_maps" data-ver="0" data-rpath="null" data-lat="4.8537928" data-long="100.7436107" data-animate-marker="drop" id="petaJabatan" data-marker-title="Kami di sini" data-center-address="34000 Taiping, Perak, Malaysia."
+					data-center-auto="true"></div>
+					<div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+						<div class="col uib_col_22 col-0_12-12" data-uib="layout/col" data-ver="0">
+							<div class="widget-container content-area vertical-col">
+								<button class="btn widget uib_w_68 d-margins btn-success" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="glyphicon glyphicon-home button-icon-left" data-position="left"></i>Pejabat Daerah Dan Tanah Larut Matang</button>
+								<button class="btn widget uib_w_69 d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="el el-address-book-alt button-icon-left" data-position="left"></i>34000 Taiping, Perak, Malaysia</button>
+								<button class="btn widget uib_w_70 d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="el el-phone-alt button-icon-left" data-position="left"></i>05-808 1963</button>
+								<button class="btn widget uib_w_71 d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="fa fa-fax button-icon-left" data-position="left"></i>Fax: 05-807 9929</button>
+								<button class="btn widget uib_w_72 d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="fa fa-globe button-icon-left" data-position="left"></i>http://pdttaiping.perak.gov.my</button>
+
+								<span class="uib_shim"></span>
+							</div>
+						</div>
+						<span class="uib_shim"></span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="upage hidden" id="panduan">
+			<div class="upage-outer">
+				<div class="uib-header header-bg container-group inner-element uib_w_43" data-uib="layout/header" data-ver="0" id="headerPanduan">
+					<h2>Panduan Urusan Tanah</h2>
+					<div class="widget-container wrapping-col single-centered"></div>
+					<div class="widget-container content-area horiz-area wrapping-col left"></div>
+					<div class="widget-container content-area horiz-area wrapping-col right">
+						<button class="btn widget uib_w_44 d-margins btn-info" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnBalik2"><i class="glyphicon glyphicon-chevron-left" data-position="icon only"></i>
+						</button>
+					</div>
+				</div>
+				<div class="upage-content ac0 content-area wrapping-col left" id="page_17_37">
+					<div class="panel-group no_wrap widget uib_w_45 d-margins" data-uib="twitter%20bootstrap/accordion" data-ver="1" id="bs-accordion-0">
+						<div class="panel widget uib_w_46 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor1">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-1" data-parent="#bs-accordion-0">Kebenaran (Permit) Mengeluar dan Memindah Bahan Batu</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-1" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_12 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_57 d-margins" data-uib="media/text" data-ver="0" name="uib_w_57">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p>Penerangan ringkas</p>
+
+													<p>Bahan batu bermaksud apa-apa batuan, batu, marmar, kelikir, pasir, tanah bumi, laterit, tanah gembur, tanah liat, tanah lumpur, tanah rumput, gambur, karang, cenkerang atau tahi kelawar di dalam atau di atas mana- mana tanah dan termasuk
+														juga apa-apa bata, granit, batu kapur, simen atau lain-lain barangan yang dikilang darinya</p>
+
+													<p>Seksyen 5 KTN</p>
+
+													<p>Pemohon yang layak</p>
+
+													<p>Permohonan boleh dibuat oleh orang-orang atau badan-badan seperti berikut :-</p>
+
+													<ul>
+														<li>Orang perseorangan berumur 18 tahun ke atas</li>
+														<li>Perbadanan-perbadanan yang mempunyai kuasa di bawah perlembagaan mereka untuk memegang tanah</li>
+														<li>Raja-raja pemerintah, kerajaan, organisasi dan lain-lain orang yang diberikuasa untuk memegang tanah di bawah Peruntukan- Peruntukan Ordinan Keistimewaan Diplomatik dan Konsuler, 1957</li>
+														<li>Badan-badan yang diberikuasa secara nyata untuk memegang tanah dibawah mana-mana undang-undang bertulis lain.</li>
+													</ul>
+
+													<p>Seksyen 43 KTN</p>
+
+													<p>Tanah yang boleh dikeluarkan permit</p>
+
+													<ul>
+														<li>Tanah Kerajaan.</li>
+														<li>Tanah Milik (Geran).</li>
+														<li>Tanah Lombong.</li>
+														<li>Tanah Rizab.</li>
+													</ul>
+
+													<p>Seksyen 70 KTN</p>
+
+													<p>Permohonan dibuat</p>
+
+													<p>Permohonan boleh dibuat dengan menggunakan borang dan dokumen seperti berikut :-</p>
+
+													<ul>
+														<li>Borang Jadual 1A (2 salinan).</li>
+														<li>Borang maklumat tambahan.</li>
+														<li>Pelan kawasan yang dipohon (8 salinan).</li>
+														<li>Sijil Carian Rasmi bagi tanah milik (geran).</li>
+														<li>Surat kebenaran Akuan Berkanun pemilik tanah jika pemohon bukan pemilik tanah</li>
+														<li>Satu salinan Undang-Undang Tubuh jika permohonan dari Syarikat/Perbadanan</li>
+													</ul>
+
+													<p>Bayaran</p>
+
+													<p>Borang Jadual 1A</p>
+
+													<p>RM 2</p>
+
+													<p>Pembelian Pelan</p>
+
+													<p>RM 20</p>
+
+													<p>Bayaran Permohonan</p>
+
+													<p>RM 50</p>
+
+													<p>Kerja-kerja Memperenggan Kawasan</p>
+
+													<p>RM 150 bagi satu hektar atau kurang (setiap tambahan satu hektar atau sebahagian daripadanya RM 40)</p>
+
+													<p>Permohonan perlu dikemukakan</p>
+
+													<p>Permohonan boleh dikemukakan ke Pejabat Tanah mengikut kawasan yang dipohon.</p>
+
+													<p>Kuasa melulus</p>
+
+													<p>Pentadbir Tanah kecuali tanah-tanah rizab sungai / tasek / laut oleh Pihak Berkuasa Negeri.</p>
+
+													<p>Seksyen 13 &amp; 70 KTN</p>
+
+													<p>Kadar bayaran pemindahan bahan batu</p>
+
+													<p>Tanah</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Laterit</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Tanah gembur</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Tanah Liat</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Pasir</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Karang</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Cenkerang</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Silika</p>
+
+													<p>RM 5.00 satu tan metrik</p>
+
+													<p>Batu Kapur</p>
+
+													<p>RM 1.50 satu tan metrik</p>
+
+													<p>Tanah rumput</p>
+
+													<p>RM 1.50 satu tan metrik</p>
+
+													<p>Tahi Kelawar</p>
+
+													<p>RM 5.00 satu tan metrik</p>
+
+													<p>Batu pejal, batu atau granit</p>
+
+													<p>RM 1.00 satu tan metrik</p>
+
+													<p>Bata</p>
+
+													<p>RM 10.00 bagi 1000 ketul atau sebahagian</p>
+
+													<p>Jubin</p>
+
+													<p>RM 4.00 bagi 1000 ketul atau sebahagian</p>
+
+													<p>Marmar</p>
+
+													<p>RM 20.00 satu tan metrik</p>
+
+													<p>Buku Doket</p>
+
+													<p>RM 3.00 satu buku</p>
+
+													<p>Bayaran wang pertaruhan (deposit)</p>
+
+													<ul>
+														<li>Bayaran wang pertaruhan ( deposit ) adalah mengikut kadar yang ditentukan oleh Pentadbir Tanah.</li>
+														<li>Perkara yang perlu dilakukan selepas permohonan diluluskan:-&nbsp;
+															<br>---&gt; Menjelaskan segala bayaran yang dikenakan dalam tempoh yang ditetapkan dan mendapatkan resit bayaran&nbsp;
+															<br>---&gt; Menandatangani surat akuan mematuhi syarat permit&nbsp;
+															<br>---&gt; Mengemukakan 4 salinan pelan kawasan yang telah diperenggan.&nbsp;
+															<br>---&gt; Mengambil Permit 4C.&nbsp;
+															<br>---&gt; Mengambil doket.</li>
+													</ul>
+
+													<p>Bahan batu boleh dikeluarkan</p>
+
+													<p>Bahan batu boleh dikeluarkan mengikut tarikh yang ditetapkan dalam permit.</p>
+
+													<p>Syarat-syarat yang dikenakan</p>
+
+													<p>Syarat-syarat yang lazim digunakan ialah seperti berikut:-</p>
+
+													<ul>
+														<li>Setiap pemandu lori yang membawa bahan batu dari kawasan yang diluluskan hendaklah membawa sekeping doket yang mencatat jumlah bahan batu yang dibawa, tarikh, masa, jenis bahan batu dan tempat yang hendak dipindahkan.</li>
+														<li>Setiap doket yang dikeluarkan hendaklah disediakan dengan sempurna dan kertas karbon dua muka mesti digunakan</li>
+														<li>Kenderaan / lori yang digunakan hendaklah mengisi muatan sepertimana yang ditulis pada doket. Muatan tersebut pula mesti sama paras dengan dinding lori dan penggunaan papan tambahan adalah TIDAK DIBENAR sama sekali. Had muatan juga mesti
+															selaras dengan yang dibenarkan dan diluluskan oleh Jabatan Pengangkutan Jalan, Malaysia.</li>
+														<li>Pemandu lori dikehendaki memberhentikan lori sekiranya pemeriksaan dan sekatan dibuat oleh Pegawai Penguatkuasa Pejabat Tanah dan Galian Negeri / Pejabat Tanah.</li>
+														<li>Lori hendaklah ditutup dengan kanvas dan mempastikan jalan yang dilalui tidak kotor dan mengancam keselamatan orang ramai.</li>
+														<li>Sebarang kerosakan harta awam yang bersabit dengan pemindahan bahan batu adalah menjadi tanggungjawab pada pemegang permit. Jika gagal mengatasinya maka wang pertaruhan boleh dirampas</li>
+														<li>Pemindahan bahan batu tidak dibenarkan pada hari Ahad dan hari Kelepasan Am. KECUALI pada hari Sabtu pertama dan ketiga bulan berkenaan atau mendapat kebenaran khas daripada Pentadbir Tanah.</li>
+														<li>Kerja-kerja pemindahan bahan batu hanya dibenarkan antara jam 7.00 pagi hingga 7.00 petang sahaja.</li>
+														<li>Pemegang permit adalah dikehendaki menyelenggarakan rekod harian pemindahan di tempat pengambilan bahan batu dan mengemukakan rekod tersebut untuk pemeriksaan oleh Pengarah Tanah dan Galian, Pentadbir Tanah dari masa ke semasa.</li>
+														<li>Pemegang permit adalah dikehendaki mengemukakan kepada Pentadbir Tanah satu salinan rekod harian sepertimana yang dinyatakan di para ( i ) di atas dan penyata bulanan bahan batu diambil tiap-tiap bulan tidak lewat daripada 4 haribulan yang
+															berikutnya atau pada tarikh permohonan semula yang mana lebih awal. ( Bagi pemindahan bahan batu yang diluluskan kurang dari tempoh satu bulan, penyata harian sahaja diperlukan ).</li>
+														<li>Pengambilan bahan batu hendaklah dari kawasan yang diberi kebenaran sahaja.</li>
+														<li>Pentadbir Tanah boleh mengenakan syarat-syarat tambahan dari masa ke semasa jika perlu.</li>
+													</ul>
+
+													<p>Tindakan yang dikenakan sekiranya berlaku pelanggaran syarat</p>
+
+													<p>Permit boleh dibatalkan dan wang pertaruhan serta doket boleh dirampas.</p>
+
+													<p>Permit boleh ditamatkan sekiranya:-</p>
+
+													<p>&nbsp;</p>
+
+													<ul>
+														<li>Pemegang permit meninggal dunia.</li>
+														<li>Badan atau syarikat dibubarkan.</li>
+													</ul>
+
+													<p>Permit boleh dibatalkan sekiranya</p>
+
+													<p>Permit boleh dibatalkan apabila kawasan berkenaan diperlukan atas kepentingan kerajaan.</p>
+
+													<p>Tindakan yang dikenakan sekiranya bahan batu dikeluar dan dipindahkan tanpa permit</p>
+
+													<p>&nbsp;</p>
+
+													<ul>
+														<li>Denda tidak melebihi RM 10,000.00; atau</li>
+														<li>Penjara untuk satu tempoh tidak melebihi satu tahun; atau kedua-duanya sekali</li>
+													</ul>
+
+													<p>Seksyen 426 (1) KTN</p>
+
+													<p>Seksyen 97 &amp; 100 KTN</p>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_47 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor2">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-2" data-parent="#bs-accordion-0">Tukar Syarat Tanaman Kepada Tanaman Yang Lain Secara Individu / Berkelompok</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-2" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_13 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_58 d-margins" data-uib="media/text" data-ver="0" name="uib_w_58">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p>Penerangan ringkas</p>
+
+													<p>Tukar syarat tanaman ialah menukar syarat sesuatu jenis tanaman kepada tanaman yang lain.&nbsp;
+														<br>
+														<br>Contoh : Tanaman GETAH ditukar kepada KELAPA SAWIT.</p>
+
+													<p>Seksyen 124 KTN</p>
+
+													<p>Pemohon yang layak</p>
+
+													<p>Pemilik Tanah (Perseorangan / Syarikat / Perbadanan) atau Pemegang Suratkuasa Wakil.</p>
+
+													<p>Borang yang digunakan</p>
+
+													<p>Borang Permohonan Tukar Syarat boleh didapati di mana-mana Pejabat Tanah.</p>
+
+													<p>Cara memohon</p>
+
+													<p>Borang permohonan yang telah lengkap diisi hendaklah dikemukakan ke Pejabat Tanah dengan menyertakan dokumen-dokumen berikut :-</p>
+
+													<ul>
+														<li>Satu salinan dokumen hakmilik keluaran</li>
+														<li>Satu salinan resit cukai tanah semasa</li>
+														<li>Satu salinan kad pengenalan</li>
+														<li>Surat persetujuan bagi mana-mana pihak yang mempunyai kepentingan berdaftar di atas tanah</li>
+														<li>Satu salinan sijil carian rasmi hakmilik berkenaan</li>
+														<li>Permohonan daripada syarikat hendaklah disertakan dengan Undang-Undang Tubuh, senarai Ahli Lembaga Pengarah (Borang 49) yang disahkan oleh Setiausaha Syarikat, Penyata Pembahagian Saham (Borang 24) dan Perpindahan Saham (Borang 32A) yang
+															disahkan oleh syarikat yang memohon.</li>
+													</ul>
+
+													<p>Bayaran</p>
+
+													<p>Permohonan</p>
+
+													<p>RM 20 satu hakmilik</p>
+
+													<p>Endosan / Catatan</p>
+
+													<p>RM 30 satu hakmilik</p>
+
+													<p>Lain-lain bayaran</p>
+
+													<p>seperti dalam borang 7G</p>
+
+													<p>Kuasa Melulus</p>
+
+													<ul>
+														<li>Hakmilik Pejabat Pendaftar (Geran / Pajakan Negeri / HSD) diluluskan oleh Pengarah Tanah dan Galian.</li>
+														<li>Hakmilik Pejabat Tanah (Geran Mukim / Pajakan Mukim / HSM) diluluskan oleh Pentadbir Tanah.</li>
+													</ul>
+
+													<p>Tindakan selepas permohonan diluluskan</p>
+
+													<ul>
+														<li>Pemohon akan diberitahu mengenai kelulusan dan syarat-syarat berserta dengan notis dalam borang 7G.</li>
+														<li>Tempoh kelulusan ialah tiga (3) bulan daripada tarikh notis diterima.</li>
+														<li>Jika dipersetujui, pemohon diminta menjelaskan segala bayaran yang ditetapkan dalam borang 7G.</li>
+													</ul>
+
+													<p>Tukar syarat berkuatkuasa</p>
+
+													<ul>
+														<li>Setelah endosan dibuat di dalam hakmilik berkenaan.</li>
+														<li>Dokumen Hakmilik Keluaran diserahkan kepada pemohon.</li>
+													</ul>
+
+													<p>Peringatan</p>
+
+													<p>Pelanggaran syarat secara berterusan boleh mengakibatkan tanah dirampas oleh Pihak Berkuasa Negeri.</p>
+
+													<p>Seksyen 130 KTN</p>
+
+													<p>Contoh borang</p>
+
+													<p>&nbsp;</p>
+
+													<ul>
+														<li>Borang Permohonan Tukar Syarat</li>
+														<li>Notis dalam Borang 7G</li>
+														<li>Menyerahkan Dokumen Hakmilik Keluaran</li>
+													</ul>
+
+													<p>Seksyen 97 &amp; 100 KTN</p>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_48 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor3">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-3" data-parent="#bs-accordion-0">Menarik Balik Kaveat Persendirian</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-3" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_14 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_59 d-margins" data-uib="media/text" data-ver="0" name="uib_w_59">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p></p>
+													<table>
+														<tbody>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Penerangan ringkas</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Menarik balik Kaveat Persendirian ialah melepaskan segala sekatan atau halangan yang telah dimasukkan oleh pengkaveat di atas hakmilik berkaitan.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Borang yang digunakan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Permohonan menarik balik Kaveat Persendirian hendaklah menggunakan borang 19G yang boleh dibeli di mana-mana Pejabat Tanah.</p>
+
+																	<p>Seksyen 325 KTN</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Cara mengisi borang 19G</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Segala maklumat dalam Borang 19G boleh ditaip atau ditulis dengan terang dan jelas.&nbsp;
+																		<br>
+																		<br>Borang yang sudah diisi dengan lengkap mestilah diakusaksi oleh mana-mana pegawai atau orang yang disenaraikan diantaranya seperti berikut :-</p>
+
+																	<ul>
+																		<li>Majistret</li>
+																		<li>Pengarah Tanah dan Galian</li>
+																		<li>Pendaftar Hakmilik</li>
+																		<li>Pentadbir Tanah</li>
+																		<li>Peguambela dan Peguam Cara.</li>
+																		<li>Penyaksi Awam (Notary Public)</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Tindakan selepas menyempurnakan borang 19G</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Menyerahkan dokumen-dokumen berikut ke kaunter Bahagian Hakmilik Pejabat Pengarah Tanah dan Galian Negeri / Bahagian Pendaftaran Pejabat Tanah berkenaan.</p>
+
+																	<ul>
+																		<li>Borang 19G yang lengkap.</li>
+																		<li>Bayaran yang ditetapkan.</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Kesan penarikan balik kaveat persendirian</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Apabila penarikan balik Kaveat Persendirian didaftarkan, segala sekatan dan halangan ke atas urusniaga terbatal.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Bayaran</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<table border="1" cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td>
+																					<p>Pembelian Borang 19G</p>
+																				</td>
+																				<td>
+																					<p>RM 3 satu set</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Penyaksian Borang 19G</p>
+																				</td>
+																				<td>
+																					<p>RM 5 satu penyaksian</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Pendaftaran Penarikan Balik Kaveat</p>
+																				</td>
+																				<td>
+																					<p>RM 200 satu Hakmilik</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Pendaftaran :&nbsp;
+																						<br>
+																						<br>Suratkuasa Wakil Daftar</p>
+																				</td>
+																				<td>
+																					<p>
+																						<br>
+																						<br>RM 50 satu suratkuasa</p>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Kuasa Melulus</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Hakmilik Pejabat Pendaftar (Geran / Pajakan Negeri / HSD) diluluskan oleh Pendaftar Hakmilik.</li>
+																		<li>Hakmilik Pejabat Tanah (Geran Mukim / Pajakan Mukim / HSM) diluluskan oleh Pentadbir Tanah.</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Contoh borang dan dokumen</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Borang 19G</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Seksyen 97 &amp; 100 KTN</p>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_50 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor4">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-0" data-parent="#bs-accordion-0">Pindahmilik Tanah</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-0" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_15 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_60 d-margins" data-uib="media/text" data-ver="0" name="uib_w_60">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p>Penerangan ringkas</p>
+
+													<p>Pindahmilik tanah ialah memindahkan hak pemilikan tanah dari pemilik semasa kepada pemilik baru sama ada melalui pemberian kasih sayang, jual beli tanah atau Perintah Mahkamah.</p>
+
+													<p>Borang yang digunakan</p>
+
+													<p>Permohonan pindahmilik tanah hendaklah menggunakan Borang 14A yang boleh dibeli di mana-mana Pejabat Tanah.</p>
+
+													<p>Seksyen 215 KTN</p>
+
+													<p>Permohonan pindahmilik jika ada sekatan kepentingan</p>
+
+													<p>Perlu mendapatkan kebenaran pindahmilik daripada Pihak Berkuasa Negeri (PBN).&nbsp;
+														<br>
+														<br>Permohonan dikemukakan kepada :</p>
+
+													<ul>
+														<li>Pengarah Tanah dan Galian Negeri Perak - Hakmilik Pendaftar</li>
+														<li>Pentadbir Tanah - Hakmilik Pejabat Tanah</li>
+													</ul>
+
+													<p>Permohonan pindahmilik kepada bukan warganegara</p>
+
+													<p>Perlu mendapatkan kelulusan Pihak Berkuasa Negeri(PBN) kecuali tanah kategori industri.</p>
+
+													<p>Seksyen 433BKTN</p>
+
+													<p>Cara mengisi borang 14A</p>
+
+													<p>Segala maklumat dalam Borang 16N boleh ditaip atau ditulis dengan terang dan jelas menggunakan dakwat hitam atau biru kehitaman.&nbsp;
+														<br>
+														<br>Borang yang sudah diisi dengan lengkap mestilah diakusaksi oleh mana-mana pegawai atau orang yang disenaraikan diantaranya seperti berikut :-</p>
+
+													<ul>
+														<li>Majistret</li>
+														<li>Pengarah Tanah dan Galian</li>
+														<li>Pendaftar Hakmilik</li>
+														<li>Pentadbir Tanah</li>
+														<li>Peguambela dan Peguam Cara.</li>
+														<li>Penyaksi Awam (Notary Public).</li>
+													</ul>
+
+													<p>Bagi permohonan pindahmilik tanah Pegangan Melayu di dalam kawasan Rizab Melayu Borang 14A mestilah diakusaksi oleh Pentadbir Tanah.</p>
+
+													<p>Seksyen 211, 436 &amp; 436A KTN</p>
+
+													<p>Tindakan selepas menyempurnakan borang 14A</p>
+
+													<p>i. Melekatkan setem hasil RM 10/- di atas Borang 14A dan dimatikan di Pejabat Pemungut Duti Setem&nbsp;
+														<br>
+														<br>ii. Membuat bayaran cukai setem di Pejabat Pemungut Duti Setem&nbsp;
+														<br>
+														<br>iii. Menyerahkan dokumen-dokumen berikut ke kaunter Bahagian Hakmilik Pejabat Pengarah Tanah dan Galian Negeri / Bahagian Pendaftaran Pejabat Tanah berkenaan</p>
+
+													<ul>
+														<li>Borang 14A yang lengkap.</li>
+														<li>Resit Cukai Tanah semasa.</li>
+														<li>Dokumen hakmilik keluaran tanah berkenaan atau permohonan hakmilik gantian bersama surat akuan hakmilik hilang.</li>
+														<li>Surat kebenaran PBN jika berkaitan</li>
+														<li>Surat Kebenaran Pemegang Kaveat/ Pemegang gadaian jika berkaitan</li>
+														<li>Suratkuasa Wakil jika berkaitan</li>
+														<li>Borang DS.01 ( Borang Penyerahan Dokumen)</li>
+														<li>Borang DS.05 ( Borang Butir-butir Pembeli dan Penerima)</li>
+														<li>Borang Taksiran Duti Setem (PDS 14- 1(Pin.9/99)</li>
+														<li>Perintah Mahkamah jika berkaitan.</li>
+														<li>Sesalinan Undang-undang Tubuh (Syarikat/Pertubuhan).</li>
+														<li>Bayaran-bayaran yang ditetapkan.</li>
+													</ul>
+
+													<p>Penyerahan hakmilik(geran) dikembalikan</p>
+
+													<p>Penyerah akan dimaklumkan setelah nama pemilik baru didaftarkan di dalam hakmilik berkaitan.</p>
+
+													<p>Bayaran</p>
+
+													<p>Pembelian Borang 14A</p>
+
+													<p>RM 3 satu set</p>
+
+													<p>Penyaksian Borang 14A</p>
+
+													<p>RM 5 satu penyaksian</p>
+
+													<p>Pendaftaran :&nbsp;
+														<br>Suratkuasa Wakil Baru&nbsp;
+														<br>Suratkuasa Wakil Daftar&nbsp;</p>
+
+													<p>RM 100 satu suratkuasa&nbsp;
+														<br>RM 50 satu suratkuasa</p>
+
+													<p>Bayaran pendaftaran Lewat selepas 3 bulan dari tarikh penyaksian</p>
+
+													<p>Diganda mengikut bayaran pendaftaran Borang 14A tertakluk kepada maksima 5 kali ganda</p>
+
+													<p>Bayaran pendaftaran untuk pindahmilik tanah adalah seperti kadar yang ditetapkan dalam jadual di bawah:-&nbsp;</p>
+
+													<p>JUMLAH NILAIAN (RM)</p>
+
+													<p>KADAR</p>
+
+													<p>0-30,000</p>
+
+													<p>50</p>
+
+													<p>30,001-50,000</p>
+
+													<p>80</p>
+
+													<p>50,001-100,000</p>
+
+													<p>150</p>
+
+													<p>100,001-150,000</p>
+
+													<p>250</p>
+
+													<p>150,001-200,000</p>
+
+													<p>300</p>
+
+													<p>200,001-250,000</p>
+
+													<p>350</p>
+
+													<p>250,001-300,000</p>
+
+													<p>400</p>
+
+													<p>300,001-500,000</p>
+
+													<p>0.15%</p>
+
+													<p>500,001 ke atas</p>
+
+													<p>0.20%</p>
+
+													<p>Bayaran Tambahan Kepada Bukan Warganegara Malaysia ( 1 Hakmilik )</p>
+
+													<p>5,000</p>
+
+													<p>Kuasa Melulus</p>
+
+													<p>Hakmilik Pejabat Pendaftar (Geran / Pajakan Negeri / HSD) diluluskan oleh Pendaftar Hakmilik di Pejabat Pengarah Tanah dan Galian Negeri.&nbsp;
+														<br>
+														<br>Hakmilik Pejabat Tanah (Geran Mukim / Pajakan Mukim / HSM) diluluskan oleh Pentadbir Tanah di Pejabat Tanah berkaitan.</p>
+
+													<p>Peringatan</p>
+
+													<p>Had umur penerima pindahmilik mestilah 18 tahun ke atas.</p>
+
+													<p>Seksyen 43 KTN</p>
+
+													<p>Bagi tanah pertanian bahagian yang hendak di pindahmilik mestilah tidak kurang daripada 1 ekar(0.404686 hektar), atau kurang daripada 1 ekar (0.404686 hektar) jika dari bahagian yang tidak dipecahkan.</p>
+
+													<p>Seksyen 205(3) KTN</p>
+
+													<p>Contoh Borang dan dokumen</p>
+
+													<p>&nbsp;</p>
+
+													<ul>
+														<li>Borang 14A</li>
+														<li>Resit Cukai Tanah Semasa</li>
+														<li>Borang DS.01</li>
+														<li>Borang DS.05</li>
+													</ul>
+
+													<p>Seksyen 97 &amp; 100 KTN</p>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_51 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor5">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-4" data-parent="#bs-accordion-0">Pecah Bahagi Bangunan (Hakmilik Strata)</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-4" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_16 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_61 d-margins" data-uib="media/text" data-ver="0" name="uib_w_61">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p></p>
+													<table>
+														<tbody>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Penerangan ringkas</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>- Hakmilik strata ialah hakmilik yang dikeluarkan kepada petak-petak dalam bangunan berbilang tingkat seperti rumah pangsa, pangsapuri, kondominium, kompleks komersial, kompleks serbaguna dan lain-lain.&nbsp;
+																		<br>
+																		<br>- Hakmilik strata juga dikeluarkan bagi mana-mana tanah yang dipecah bahagikan kepada petak-petak tanah yang dipegang di bawah lot yang sama seperti rumah-rumah banglo, berkembar atau teres dalam skim komuniti berpagar.&nbsp;
+																		<br>
+																		<br>- Tuan tanah diwajibkan membuat permohonan hakmilik strata dalam tempoh yang ditetapkan JIKA beliau telah menjual mana-mana petak dalam bangunan berbilang tingkat yang didirikan. Tempoh yang dimaksudkan adalah:&nbsp;
+																		<br>
+																		<br>6 bulan dari tarikh perjanjian jualbeli pertama atau 6 bulan dari tarikh Certificate of Completion and Compliance (CCC) dikeluarkan mengikut mana yang terkemudian.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Tatacara Permohonan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>(i) Tatacara Permohonan Untuk Mendapatkan Hakmilik Strata&nbsp;
+																		<br>
+																		<br>1. Permohonan untuk mendapatkan hakmilik strata bagi bangunan atau bangunan dan tanah yang dibina dalam satu lot yang sama hendaklah menggunakan BORANG 1 ; dan&nbsp;
+																		<br>
+																		<br>2. Permohonan untuk mendapatkan hakmilik strata bagi mana-mana tanah untuk dipecah bahagi kepada dua bangunan atau lebih yang dipegang di bawah satu lot yang sama hendaklah menggunakan BORANG 1A.&nbsp;
+																		<br>
+																		<br>3. Tatacara permohonan adalah seperti berikut:&nbsp;
+																		<br>
+																		<br>- BORANG 1&nbsp;
+																		<br>- BORANG 1A&nbsp;
+																		<br>
+																		<br>4. Bayaran yang dikenakan:&nbsp;
+																		<br>a)Pembelian Borang 1 dan Borang 1A - Percuma&nbsp;
+																		<br>b)Bayaran proses permohonan - RM10.00 sepetak dengan kadar Minima RM450.00&nbsp;
+																		<br>c)Bayaran deraf pelan dan pendaftaran hakmilik - RM 40.00 satu hakmilik&nbsp;
+																		<br>
+																		<br>5. Bagi menentukan Nilai Unit Syer dalam skim strata formula pengiraan ini boleh digunakan untuk menentukan nilai unit syer bagi setiap petak dan petak sementara dalam skim strata. Nilai yang hendak diperuntukkan adalah berdasarkan keluasan
+																		petak atau harga jualan bagi sepetak.&nbsp;
+																		<br>
+																		<br>6. Jika pemilik tanah gagal membuat permohonan untuk mendapatkan hakmilik strata adalah melakukan perlanggaran Seksyen 8 (7) Akta Hakmilik Strata 1985 dan jika disabitkan boleh didenda tidak kurang daripada RM10,000.00 tetapi tidak lebih
+																		daripada RM100,000.00 dan didenda selanjutnya tidak kurang daripada RM100.00 tetapi tidak lebih daripada RM1,000.00 bagi setiap hari kesalahan it uterus berlaku.&nbsp;
+																		<br>
+																		<br>(ii) Tatacara Permohonan Untuk Mengkelaskan Bangunan Sebagai Bangunan Kos Rendah&nbsp;
+																		<br>
+																		<br>1. Mana-mana bangunan di bawah skim kos rendah hendaklah mengkelaskan bangunan tersebut sebagai Bangunan Kos Rendah seperti mana kehendak Seksyen 10B Akta Hakmilik Strata dengan menggunakan JADUAL VII Kaedah 10 (1) Kaedah-kaedah Hakmilik
+																		Strata 1988. Permohonan ini diluluskan oleh Majlis Mesyuarat Kerajaan Negeri.&nbsp;
+																		<br>
+																		<br>2. Satu Sijil Perakuan Bangunan Kos Rendah akan dikeluarkan di bawah Jadual VIII Kaedah 10(2) Kaedah-kaedah Hakmilik Strata 1988.&nbsp;
+																		<br>
+																		<br>3. Tatacara permohonan adalah seperti berikut:&nbsp;
+																		<br>
+																		<br>- JADUAL VII Kaedah 10(1)&nbsp;
+																		<br>borang maklumat syarikat&nbsp;
+																		<br>
+																		<br>- JADUAL VIII Kaedah 10(2)&nbsp;
+																		<br>-contoh JADUAL VIII Kaedah 10(2)&nbsp;
+																		<br>(sijil Perakuan Bangunan Kos Rendah)&nbsp;
+																		<br>
+																		<br>4. Bayaran yang dikenakan:&nbsp;
+																		<br>a)Pembelian Borang Permohonan - Percuma&nbsp;
+																		<br>JADUAL VII Kaedah 10(1)&nbsp;
+																		<br>b)Bayaran proses permohonan - RM10.00&nbsp;
+																		<br>c)Penyediaan Sijil Perakuan Bangunan - RM 3.00 satu Kos Rendah&nbsp;
+																		<br>[JADUAL VIII Kaedah 10(2)]&nbsp;
+																		<br>
+																		<br>(iii) Tatacara Permohonan Untuk Mendapatkan Permit Menggunakan Ruang Udara&nbsp;
+																		<br>
+																		<br>1. Jika terdapat binaan yang mengunjur keluar daripada sempadan lot di mana binaan ini terletak di atas tanah kerajaan atau tanah rizab seperti cucur atap (eave), kajang (awning) dan langkan (balcony), pemohon dikehendaki mengemukakan
+																		permohonan untuk mendapatkan permit menggunakan ruang udara di bawah Seksyen 75A Kanun Tanah Negara.&nbsp;
+																		<br>2. Tatacara permohonan adalah seperti berikut:&nbsp;
+																		<br>
+																		<br>- BORANG PERMOHONAN:-&nbsp;
+																		<br>borang maklumat tambahan&nbsp;
+																		<br>-contoh Borang BORANG PERMOHONAN PERMIT RUANG UDARA&nbsp;
+																		<br>
+																		<br>3. Bayaran yang dikenakan:&nbsp;
+																		<br>
+																		<br>a)Pembelian BORANG PERMOHONAN - Percuma&nbsp;
+																		<br>b)Bayaran proses permohonan - RM 70.00&nbsp;
+																		<br>c)Bayaran permit Borang 4D - RM 10.00 bagi setiap permit setahun(tempoh permit adalah 21 tahun)</p>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_52 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor6">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-5" data-parent="#bs-accordion-0">Kaveat Persendirian</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-5" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_17 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_62 d-margins" data-uib="media/text" data-ver="0" name="uib_w_62">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p></p>
+													<table>
+														<tbody>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Penerangan ringkas</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Kaveat Persendirian bertujuan untuk menyekat atau menghalang mana-mana tanah daripada sebarang urusniaga.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Borang yang digunakan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Permohonan memasukkan Kaveat Persendirian hendaklah menggunakan borang 19B yang boleh dibeli di mana-mana Pejabat Tanah.</p>
+
+																	<p>Seksyen 323 KTN</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Cara mengisi borang 19B</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Segala maklumat dalam Borang 19B boleh ditaip atau ditulis dengan terang dan jelas.</li>
+																		<li>Borang yang sudah diisi dengan lengkap mestilah diakusaksi oleh mana-mana pegawai atau orang yang disenaraikan diantaranya seperti berikut :-&nbsp;
+																			<br>- Majistret&nbsp;
+																			<br>- Pengarah Tanah dan Galian&nbsp;
+																			<br>- Pendaftar Hakmilik&nbsp;
+																			<br>- Pentadbir Tanah&nbsp;
+																			<br>- Peguambela dan Peguam Cara.&nbsp;
+																			<br>- Penyaksi Awam (Notary Public).</li>
+																		<li>Kaveat bagi hakmilik Pegangan Melayu di dalam kawasan Rizab Melayu mesti diakusaksi oleh Pentadbir Tanah.</li>
+																		<li>Alasan-alasan kemasukan kaveat hendaklah dicatatkan di para 2 borang 19B.</li>
+																		<li>Sertakan surat akuan yang diakusaksi oleh Majistret/ Pesuruhjaya Sumpah.</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Tindakan selepas menyempurnakan borang 19B</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Menyerahkan dokumen-dokumen berikut ke kaunter Bahagian Hakmilik Pejabat Pengarah Tanah dan Galian Negeri / Bahagian Pendaftaran Pejabat Tanah berkenaan.</p>
+
+																	<ul>
+																		<li>Borang 19B yang lengkap</li>
+																		<li>Surat akuan yang lengkap</li>
+																		<li>Surat perjanjian jika perlu</li>
+																		<li>Bayaran yang ditetapkan</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Proses kaveat persendirian berkuatkuasa</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Kaveat persendirian berkuatkuasa apabila didaftarkan</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Bayaran</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<table border="1" cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td>
+																					<p>Pembelian Borang 19B</p>
+																				</td>
+																				<td>
+																					<p>RM 3 satu set</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Penyaksian Borang 19B</p>
+																				</td>
+																				<td>
+																					<p>RM 5 satu penyaksian</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Pendaftaran Kaveat</p>
+																				</td>
+																				<td>
+																					<p>RM 150 satu Hakmilik</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Pendaftaran :&nbsp;
+																						<br>
+																						<br>Suratkuasa Wakil Daftar</p>
+																				</td>
+																				<td>
+																					<p>
+																						<br>
+																						<br>RM 50 satu suratkuasa</p>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Kuasa Melulus</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Hakmilik Pejabat Pendaftar (Geran / Pajakan Negeri / HSD) diluluskan oleh Pendaftar Hakmilik.</li>
+																		<li>Hakmilik Pejabat Tanah (Geran Mukim / Pajakan Mukim / HSM) diluluskan oleh Pentadbir Tanah.</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Peringatan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Had umur pengkaveat mestilah 18 tahun ke atas.</li>
+																		<li>Tempoh kaveat berkuatkuasa selama 6 tahun.</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Contoh borang dan dokumen</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Borang 19B</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Seksyen 97 &amp; 100 KTN</p>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_53 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor7">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-6" data-parent="#bs-accordion-0">Melepas Gadaian</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-6" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_18 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_63 d-margins" data-uib="media/text" data-ver="0" name="uib_w_63">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p></p>
+													<table>
+														<tbody>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Penerangan ringkas</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Melepas gadaian ialah membebaskan kepentingan pemegang gadaian di atas hakmilik berkenaan.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Borang yang digunakan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Borang 16N .</p>
+
+																	<p>Seksyen 278 KTN</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Cara mengisi borang 16N</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Segala maklumat dalam Borang 16N boleh ditaip atau ditulis dengan terang dan jelas menggunakan dakwat hitam atau biru kehitaman.&nbsp;
+																		<br>
+																		<br>Borang yang sudah diisi dengan lengkap mestilah diakusaksi oleh mana-mana pegawai atau orang yang disenaraikan diantaranya seperti berikut :-</p>
+
+																	<ul>
+																		<li>Majistret</li>
+																		<li>Pengarah Tanah dan Galian</li>
+																		<li>Pendaftar Hakmilik</li>
+																		<li>Pentadbir Tanah</li>
+																		<li>Peguambela dan Peguam Cara.</li>
+																		<li>Penyaksi Awam (Notary Public).</li>
+																	</ul>
+
+																	<p>Seksyen 211, 436 dan 436A KTN</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Tindakan selepas menyempurnakan borang 16N</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Melekatkan setem hasil RM 10/- di atas Borang 16N dan dimatikan di Pejabat Pemungut Duti Setem.&nbsp;
+																		<br>
+																		<br>Menyerahkan dokumen-dokumen berikut ke kaunter Bahagian Hakmilik Pejabat Pengarah Tanah dan Galian Negeri / Bahagian Pendaftaran Pejabat Tanah berkenaan:-</p>
+
+																	<ul>
+																		<li>Borang 16N yang lengkap.</li>
+																		<li>Resit Cukai Tanah semasa.</li>
+																		<li>Dokumen hakmilik keluaran tanah berkenaan atau permohonan hakmilik gantian / sambungan bersama surat akuan hakmilik hilang.</li>
+																		<li>Satu set pendua gadaian.</li>
+																		<li>Suratkuasa Wakil jika berkaitan.</li>
+																		<li>Borang DS 01 (Borang Penyerahan Dokumen)</li>
+																		<li>Bayaran yang ditetapkan kecuali melepas gadaian daripada Perbendaharaan Malaysia.</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Proses melepas gadaian selesai</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Melepas gadaian selesai apabila didaftarkan di dalam hakmilik berkenaan.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Bayaran</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<table border="1" cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td>
+																					<p>Pembelian Borang 16N</p>
+																				</td>
+																				<td>
+																					<p>RM 3 satu set</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Penyaksian Borang 16N</p>
+																				</td>
+																				<td>
+																					<p>RM 5 satu penyaksian</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Bayaran pendaftaran untuk melepas gadaian</p>
+																				</td>
+																				<td>
+																					<p>RM 60 satu suratkuasa</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Pendaftaran :&nbsp;
+																						<br>
+																						<br>Suratkuasa Wakil Baru&nbsp;
+																						<br>
+																						<br>Suratkuasa Wakil Daftar</p>
+																				</td>
+																				<td>
+																					<p>
+																						<br>
+																						<br>RM 100 satu suratkuasa&nbsp;
+																						<br>
+																						<br>RM 50 satu suratkuasa</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Bayaran pendaftaran lewat selepas 3 bulan dari tarikh penyaksian</p>
+																				</td>
+																				<td>
+																					<p>Digandakan mengikut bayaran Borang 16N setiap 3 bulan, tertakluk kepada maksima 5 kali ganda</p>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Kuasa Melulus</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Hakmilik Pejabat Pendaftar (Geran / Pajakan Negeri / HSD) diluluskan oleh Pendaftar Hakmilik di Pejabat Tanah dan Galian Negeri.&nbsp;
+																		<br>
+																		<br>Hakmilik Pejabat Tanah (Geran Mukim / Pajakan Mukim / HSM) diluluskan oleh Pentadbir Tanah di Pejabat Tanah berkaitan.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Contoh borang dan dokumen</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Borang 16N</li>
+																		<li>Borang DS 01</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Seksyen 97 &amp; 100 KTN</p>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_54 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor8">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-7" data-parent="#bs-accordion-0">Kebenaran Pindahmilik / Menggadai Tanah</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-7" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_19 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_64 d-margins" data-uib="media/text" data-ver="0" name="uib_w_64">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p></p>
+													<table>
+														<tbody>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Penerangan ringkas</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Kebenaran untuk memindah milik atau menggadai tanah perlu diperolehi daripada Pihak Berkuasa Negeri bagi hakmilik- hakmilik yang dikenakan 'sekatan kepentingan'.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Sekatan Kepentingan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Larangan ke atas pemilik tanah dari memindah milik atau menggadai tanah.</p>
+
+																	<p>Seksyen 120 KTN</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Borang diperlukan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Permohonan Kebenaran Pindahmilik (PTG 1/2001)</li>
+																		<li>Permohonan Kebenaran Menggadai Tanah (PTG 2/2001)</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Cara memohon</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Pemohon dikehendaki mengisi borang permohonan yang boleh didapati di Pejabat Pengarah Tanah Dan Galian Negeri atau Pejabat-Pejabat Tanah.&nbsp;
+																		<br>
+																		<br>Permohonan dikemukakan kepada :-</p>
+
+																	<ul>
+																		<li>Pengarah Tanah &amp; Galian Negeri Perak - Hakmilik Pendaftar</li>
+																		<li>Pentadbir Tanah-Hakmilik Pejabat Tanah</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Dokumen yang perlu disertakan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>a) Kebenaran Pindahmilik di antara orang perseorangan.</p>
+
+																	<ul>
+																		<li>Borang yang lengkap diisi.</li>
+																		<li>Sesalinan hakmilik.</li>
+																		<li>Sesalinan surat perjanjian jual beli (jika ada).</li>
+																		<li>Sesalinan resit cukai tanah semasa yang disahkan oleh Pentadbir Tanah.</li>
+																		<li>Sesalinan kad pengenalan pemilik dan bakal penerima milik.</li>
+																		<li>Suratkuasa Wakil (Power Of Attorney) yang disahkan.</li>
+																		<li>Surat persetujuan daripada pihak-pihak yang berkepentingan</li>
+																		<li>Salinan sah bukti pertalian keluarga sekiranya pindahmilik adalah antara ibubapa kepada anak-anak, suami isteri, dan antara adik-beradik seperti berikut :-&nbsp;
+																			<br>i. Salinan sijil kelahiran&nbsp;
+																			<br>ii. Sijil nikah atau Sijil pendaftaran perkahwinan</li>
+																	</ul>
+
+																	<p>b) Kebenaran Pindahmilik di antara orang perseorangan kepada Syarikat/Pertubuhan dan di antara sesama Syarikat/Pertubuhan.</p>
+
+																	<ul>
+																		<li>Borang yang lengkap diisi.</li>
+																		<li>Sesalinan hakmilik.</li>
+																		<li>Sesalinan surat perjanjian jual beli (jika ada).</li>
+																		<li>Sesalinan resit cukai tanah semasa yang disahkan oleh Pentadbir Tanah.</li>
+																		<li>Sesalinan kad pengenalan pemilik dan bakal penerima milik</li>
+																		<li>Sesalinan Undang-Undang Tubuh (Memorandum and Articles of Association) Syarikat/Pertubuhan tersebut yang membuktikan ianya layak memiliki tanah.</li>
+																		<li>Suratkuasa Wakil (Power of Attorney) yang disahkan.</li>
+																		<li>Salinan Sijil Pendaftaran Syarikat.</li>
+																		<li>Resolusi Lembaga Pengarah Syarikat atau Pertubuhan untuk membeli atau menjual tanah yang berkaitan.</li>
+																		<li>Borang 24 dan 49 Akta Syarikat</li>
+																		<li>Surat persetujuan daripada pihak-pihak yang berkepentingan</li>
+																	</ul>
+
+																	<p>c) Kebenaran Menggadai kepada Bank / Institusi Kewangan / Syarikat /Perbendaharaan Malaysia.</p>
+
+																	<ul>
+																		<li>Borang yang lengkap diisi.</li>
+																		<li>Sesalinan hakmilik.</li>
+																		<li>Sesalinan resit cukai tanah semasa yang disahkan oleh Pentadbir Tanah.</li>
+																		<li>Sesalinan kad pengenalan pemilik</li>
+																		<li>Sesalinan Undang-Undang Tubuh (Memorandum and Articles of Association) Syarikat / Pertubuhan.</li>
+																		<li>Suratkuasa Wakil (Power of Attorney) yang disahkan.</li>
+																		<li>Salinan Sijil Pendaftaran Syarikat.</li>
+																		<li>Resolusi Lembaga Pengarah Syarikat atau Pertubuhan untuk membeli atau menjual tanah yang berkaitan.</li>
+																		<li>Borang 24 dan 49 Akta Syarikat</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Bayaran permohonan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Kebenaran Pindahmilik - RM 70.00</li>
+																		<li>Kebenaran Menggadai - RM 70.00</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Kuasa meluluskan permohonan kebenaran pindahmilik tanah</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<table border="1" cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td>
+																					<p>Perkara</p>
+																				</td>
+																				<td>
+																					<p>Jenis Hakmilik</p>
+																				</td>
+																				<td>
+																					<p>Kuasa Melulus</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Pindahmilik daripada :</p>
+
+																					<ul>
+																						<li>ibu bapa kepada anak dan sebaliknya</li>
+																						<li>suami kepada isteri dan sebaliknya</li>
+																						<li>antara adik-beradik seibu atau sebapa</li>
+																						<li>individu Bumiputera kepada Bumiputera</li>
+																						<li>Bukan Bumiputera kepada bukan Bumiputera</li>
+																						<li>bukan ahli keluarga</li>
+																					</ul>
+																				</td>
+																				<td>
+																					<p>&nbsp;</p>
+
+																					<p>Hakmilik Pendaftar</p>
+
+																					<p>&nbsp;</p>
+
+																					<p>Hakmilik Pejabat Tanah</p>
+																				</td>
+																				<td>
+																					<p>Pengarah Tanah dan Galian</p>
+
+																					<p>&nbsp;</p>
+
+																					<p>Pentadbir Tanah</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>&nbsp;</td>
+																				<td>&nbsp;</td>
+																				<td>&nbsp;</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Selain dari yang tersebut di atas</p>
+																				</td>
+																				<td>
+																					<p>Hakmilik Pendaftar</p>
+
+																					<p>&nbsp;</p>
+
+																					<p>Hakmilik Pejabat Tanah</p>
+																				</td>
+																				<td>
+																					<p>Menteri Besar</p>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Kuasa meluluskan permohonan menggadai tanah</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>&nbsp;</p>
+
+																	<table border="1" cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td>
+																					<p>Perkara</p>
+																				</td>
+																				<td>
+																					<p>Jenis Hakmilik</p>
+																				</td>
+																				<td>
+																					<p>Kuasa Melulus</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Hakmilik yang mempunyai sekatan kepentingan tidak boleh menggadai kecuali dengan kebenaran</p>
+																				</td>
+																				<td>
+																					<p>Hakmilik Pendaftar</p>
+
+																					<p>&nbsp;</p>
+
+																					<p>Hakmilik Pejabat Tanah</p>
+																				</td>
+																				<td>
+																					<p>Pengarah Tanah dan Galian</p>
+
+																					<p>&nbsp;</p>
+
+																					<p>Pentadbir Tanah</p>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Semua permohonan perlu dikemukakan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Pengarah Tanah &amp; Galian Negeri Perak - HakmilikPendaftar</li>
+																		<li>Pentadbir Tanah - Hakmilik Pejabat Tanah</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Peringatan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>a) Sila semak permohonan anda berpandukan kepada senarai semakan yang terdapat di borang berkenaan.&nbsp;
+																		<br>b) Permohonan yang lengkap sahaja akan diproses&nbsp;
+																		<br>c) Tempoh kelulusan ialah satu tahun dari tarikh surat dikeluarkan.&nbsp;
+																		<br>d) Rayuan boleh dipertimbangkan:&nbsp;
+																		<br>- Untuk lanjutan tempoh kelulusan dengan bayaran RM 50.00 satu Hakmilik.&nbsp;
+																		<br>- Bagi kelulusan yang telah luput boleh memohon semula dengan bayaran RM 50.00 satu Hakmilik.&nbsp;
+																		<br>e) Salinan sah surat kelulusan kebenaran pindahmilik/menggadai dikenakan bayaran RM 30.00 bagi satu salinan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Seksyen 97 &amp; 100 KT</p>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_55 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor9">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-8" data-parent="#bs-accordion-0">Menggadai Tanah</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-8" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_20 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_65 d-margins" data-uib="media/text" data-ver="0" name="uib_w_65">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<p></p>
+													<table>
+														<tbody>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Penerangan ringkas</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Gadaian merupakan satu urusniaga apabila Pemilik Tanah atau Pemegang Pajakan menyerahkan Hakmilik kepada orang / badan lain sebagai jaminan keselamatan bayaran balik sesuatu pinjaman, anuiti atau mana-mana bayaran bertempoh dan wujud
+																		apabila didaftarkan di dalam hakmilik berkenaan.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Borang yang digunakan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Permohonan menggadai tanah hendaklah menggunakan 2 set Borang 16A atau 16B yang boleh dibeli di mana€“mana Pejabat Tanah.</p>
+
+																	<p>Seksyen 242 KTN</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Jika ada sekatan kepentingan</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Perlu mendapatkan kebenaran Pihak Berkuasa Negeri (PBN).&nbsp;
+																		<br>
+																		<br>Permohonan dikemukakan kepada:-</p>
+
+																	<ul>
+																		<li>Pengarah Tanah dan Galian Negeri Perak - Hakmilik Pendaftar</li>
+																		<li>Pentadbir Tanah - Hakmilik Pejabat Tanah</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Cara mengisi borang 16N</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Segala maklumat dalam Borang 16A/16B boleh ditaip atau ditulis dengan terang dan jelas menggunakan dakwat hitam atau biru kehitaman.&nbsp;
+																		<br>
+																		<br>Borang yang sudah diisi dengan lengkap mestilah diakusaksi oleh mana-mana pegawai atau orang yang disenaraikan diantaranya seperti berikut :-</p>
+
+																	<ul>
+																		<li>Majistret</li>
+																		<li>Pengarah Tanah dan Galian</li>
+																		<li>Pendaftar Hakmilik</li>
+																		<li>Pentadbir Tanah</li>
+																		<li>Peguambela dan Peguam Cara.</li>
+																		<li>Penyaksi Awam (Notary Public).</li>
+																	</ul>
+
+																	<p>Bagi permohonan mengadai tanah Pegangan Melayu di dalam kawasan Rizab Melayu Borang 16A/16B mestilah diakusaksi oleh Pentadbir Tanah</p>
+
+																	<p>Seksyen 211, 436 &amp; 436A KTN</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Tindakan selepas menyempurnakan borang 16A/16B</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>a) Melekatkan setem hasil RM 10/- di atas Borang 16A/16B dan dimatikan di Pejabat Pemungut Duti Setem.&nbsp;
+																		<br>
+																		<br>b) Menyerahkan dokumen-dokumen berikut ke kaunter Bahagian Hakmilik Pejabat Pengarah Tanah dan Galian Negeri / Bahagian Pendaftaran Pejabat Tanah berkenaan.</p>
+
+																	<ul>
+																		<li>2 set borang 16A/16B yang lengkap.</li>
+																		<li>Lampiran Perjanjian Pinjaman.</li>
+																		<li>Resit cukai tanah semasa.</li>
+																		<li>Dokumen hakmilik keluaran tanah berkenaan atau permohonan hakmilik gantian/sambungan bersama surat akuan hakmilik hilang.</li>
+																		<li>Surat kebenaran PBN jika berkaitan.</li>
+																		<li>Surat kebenaran Pemegang Kaveat jika berkaitan</li>
+																		<li>Suratkuasa Wakil jika berkaitan</li>
+																		<li>Borang DS 01 (Borang Penyerahan Dokumen)</li>
+																		<li>Bayaran yang ditetapkan kecuali gadaian kepada Perbendaharaan Malaysia</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Proses gadaian selesai</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Gadaian selesai apabila didaftarkan di dalam hakmilik berkenaan.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Bayaran</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<table border="1" cellpadding="0">
+																		<tbody>
+																			<tr>
+																				<td>
+																					<p>Borang Jadual 1A</p>
+																				</td>
+																				<td>
+																					<p>RM 2</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Pembelian Pelan</p>
+																				</td>
+																				<td>
+																					<p>RM 20</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Bayaran Permohonan</p>
+																				</td>
+																				<td>
+																					<p>RM 50</p>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<p>Kerja-kerja Memperenggan Kawasan</p>
+																				</td>
+																				<td>
+																					<p>RM 150 bagi satu hektar atau kurang (setiap tambahan satu hektar atau sebahagian daripadanya RM 40)</p>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Kuasa melulus</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Hakmilik Pejabat Pendaftar (Geran / Pajakan Negeri / HSD) diluluskan oleh Pendaftar Hakmilik di Pejabat Pengarah Tanah dan Galian Negeri.&nbsp;
+																		<br>
+																		<br>Hakmilik Pejabat Tanah (Geran Mukim / Pajakan Mukim / HSM) diluluskan oleh Pentadbir Tanah di Pejabat Tanah berkaitan.</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td>
+																	<p>Contoh Borang dan Dokumen</p>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<ul>
+																		<li>Borang 16A</li>
+																		<li>Borang 16B</li>
+																		<li>Resit Cukai Tanah</li>
+																		<li>Borang DS 01</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Seksyen 97 &amp; 100 KTN</p>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel widget uib_w_56 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="accor10">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+           <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-9" data-parent="#bs-accordion-0">Panduan Membayar Cukai Tanah</a>
+       </h4>
+							</div>
+							<div id="bs-accordion-group-9" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col uib_col_21 single-col" data-uib="layout/col" data-ver="0">
+										<div class="widget-container content-area vertical-col">
+											<div class="tarea widget uib_w_66 d-margins" data-uib="media/text" data-ver="0" name="uib_w_66">
+												<div class="widget-container left-receptacle"></div>
+												<div class="widget-container right-receptacle"></div>
+												<div class="text-container">
+													<table>
+														<tbody>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Penerangan ringkas</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Cukai tanah ialah bayaran yang dikenakan setiap tahun sebagai cukai ke atas tanah yang diberimilik (Geran). Membayar cukai tanah adalah tanggungjawab pemilik tanah. Cukai tanah hendaklah dibayar mulai 1 Januari hingga 31 Mei tahun semasa.
+																	Jika cukai tanah yang tidak dibayar mulai 1 Jun akan menjadi tunggakan dan dikenakan denda lewat.</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Tempat bayaran cukai tanah</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Bayaran boleh dibuat di kaunter Hasil Pejabat-Pejabat Tanah dimana tanah tersebut terletak atau di mana-mana tempat kutipan luar yang ditetapkan oleh Pejabat Tanah berkaitan.
+																	<p>&nbsp;</p>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Cara bayaran</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<p>Bayaran boleh dibuat secara tunai, melalui cek / bank deraf / kiriman wang / wang pos atas nama<strong>Bendahari Negeri Perak</strong>.&nbsp;<em>(Arahan berkuatkuasa mulai 16 Jun 2014)</em>
+																		<br>
+																		<br>
+																		<strong>Kad Kredit&nbsp;</strong>ViSA dan MASTERCARD diterima hanya di kaunter pembayaran manakala;
+																		<br>
+																		<strong>Kad Debit</strong>&nbsp;ViSA dan MASTERCARD boleh digunakan untuk pembayaran secara online.</p>
+
+																	<p>Bayaran melalui perbankan online seperti;</p>
+
+																	<ul>
+																		<li>FPX</li>
+																		<li>Maybank</li>
+																		<li>RHB Bank</li>
+																		<li>CIMB</li>
+																	</ul>
+																	Bayaran juga boleh dibuat melalui pos mengikut kaedah-kaedah yang ditetapkan oleh Kerajaan dari masa ke semasa.</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Bil cukai tanah</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Penghantaran Bil cukai tanah kepada pemilik tanah adalah untuk memberi kemudahan dan peringatan sahaja. Walau bagaimanapun pemilik tanah yang tidak menerima bil cukai tanah boleh mendapatkannya di Bahagian Hasil Pejabat Tanah yang berkenaan
+																	dengan mengemukakan butir-butir berikut:-
+																	<ul>
+																		<li>Nombor Hakmilik</li>
+																		<li>Nombor Lot/PT</li>
+																		<li>Mukim/Bandar/Pekan</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Semasa Pembayaran</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Sediakan wang secukupnya.&nbsp;</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Selepas Pembayaran</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Perlu menyemak beberapa perkara berikut :
+																	<ul>
+																		<li>Pastikan ada cetakan berkomputer di atas resit.</li>
+																		<li>Pastikan amaun yang dibayar sama dengan amaun yang tercatat di atas resit bayaran</li>
+																		<li>Catatan berkomputer di atas resit sama dengan maklumat di atas bil cukai tanah.</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Pembayaran tunggakan cukai tanah</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Pemilik tanah yang mempunyai tunggakan cukai tanah boleh memohon kepada Pentadbir Tanah untuk membayar secara ansuran.&nbsp;
+																	<br>
+																	<br>Bayaran ansuran hendaklah dijelaskan sepenuhnya dalam tahun semasa mengikut jadual yang telah ditetapkan.&nbsp;
+																	<br>
+																	<br>Kegagalan mematuhi jadual bayaran yang ditetapkan boleh menyebabkan tindakan perampasan diambil.</td>
+															</tr>
+															<tr>
+																<td>&nbsp;</td>
+																<td><strong>Tindakan jika gagal membayar cukai tanah</strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Pemilik tanah yang tidak membayar tunggakan cukai tanah akan diberi peringatan untuk tempoh tertentu yang ditetapkan melalui surat pentadbiran. Jika masih engkar, Pentadbir Tanah boleh menyampaikan Notis 6A dan diberi tempoh 3 bulan untuk
+																	menjelaskan tunggakan cukai tanah.&nbsp;
+																	<br>
+																	<br>Jika pemilik tanah masih engkar menjelaskan tunggakan cukai tanah pada akhir tempoh tiga bulan seperti yang dinyatakan di dalam Notis 6A, Pentadbir Tanah boleh mengisytiharkan dengan perintah, tanah itu dirampas dan menjadi hak Kerajaan
+																	Negeri.
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">Seksyen 97 &amp; 100 KTN</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<span class="uib_shim"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
